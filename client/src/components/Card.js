@@ -2,17 +2,21 @@ import React from 'react';
 
 const styles = {
   complete: {
+    display: 'none',
     textDecoration: 'line-through',
     color: 'grey'
   },
   pointer: { cursor: 'pointer' }
 }
 
-const Card = ({ id, complete, front, back, updateCard, deleteCard }) => (
+const Card = ({ id, complete=true, front, back, updateCard, deleteCard }) => (
   <div className="col s12">
     <div className="col m8">
+      <div className="left">
+        {front}
+      </div>
       <div style={ complete ? styles.complete : {} } className="center">
-        {front},{back}
+        {back}
       </div>
     </div>
     <div className="col m2">
@@ -22,7 +26,11 @@ const Card = ({ id, complete, front, back, updateCard, deleteCard }) => (
         defaultChecked={complete}
         onClick={() => updateCard(id)}
       />
-      <label htmlFor={`item-${id}`}>Complete?</label>
+      { complete === true ? 
+        <label htmlFor={`item-${id}`} className="btn small">Show Back</label>
+        :
+        <label htmlFor={`item-${id}`} className="small btn">Hide Back</label>
+      }
     </div>
     <div style={ styles.pointer } className="col m1" onClick={() => deleteCard(id)}>
       X

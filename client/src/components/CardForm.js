@@ -15,6 +15,7 @@ class CardForm extends React.Component {
     e.preventDefault();
     this.props.addCard(this.state.front, this.state.back);
     this.setState({ front: '', back: '' })
+    e.target.value = ''
   }
 
   render() {

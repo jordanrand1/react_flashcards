@@ -6,8 +6,6 @@ const CardList = ({ cards, updateCard, deleteCard }) => (
     { cards.map( card => 
         <Card
           key={card.id}
-          front={card.front}
-          back={card.back}
           {...card}
           updateCard={updateCard}
           deleteCard={deleteCard}
