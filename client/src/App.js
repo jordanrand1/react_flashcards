@@ -3,7 +3,7 @@ import CardForm from './components/CardForm';
 import CardList from './components/CardList';
 
 class App extends Component {
-  state = { cards: [] }
+  state = { cards: [], editing: null }
 
   componentDidMount() {
     //Card make a call to our rails server to get Items
@@ -35,6 +35,12 @@ class App extends Component {
     const {cards} = this.state;
     this.setState({ cards: cards.filter( t => t.id !== id )})
 
+  }
+
+  toggleEdit = (id = null) => {
+    const {cards} = this.state
+    const editing = cards.find(c => c.id === id )
+    this.setState(editing)
   }
 
   render() {

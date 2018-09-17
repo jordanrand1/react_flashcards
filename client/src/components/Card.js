@@ -11,7 +11,7 @@ const styles = {
 
 const Card = ({ id, complete=true, front, back, updateCard, deleteCard }) => (
   <div className="col s12">
-    <div className="col m8">
+    <div className="col m8 card">
       <div className="left">
         {front}
       </div>
@@ -32,7 +32,7 @@ const Card = ({ id, complete=true, front, back, updateCard, deleteCard }) => (
         <label htmlFor={`item-${id}`} className="small btn">Hide Back</label>
       }
     </div>
-    <div style={ styles.pointer } className="col m1" onClick={() => deleteCard(id)}>
+    <div style={ styles.pointer } className="red btn" onClick={() => deleteCard(id)}>
       X
     </div>
   </div>
