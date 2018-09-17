@@ -3,9 +3,12 @@ import React from 'react';
 class CardForm extends React.Component {
   state = { front: '', back: '' }
 
-  handleChange = (e) => {
-    debugger
-    //this.setState({ e.target.props.name: e.target.value });
+  handleFrontChange = (e) => {
+    this.setState({ front: e.target.value });
+  }
+
+  handleBackChange = (e) => {
+    this.setState({ back: e.target.value });
   }
 
   handleSubmit = (e) => {
@@ -20,14 +23,14 @@ class CardForm extends React.Component {
         <input
           placeholder="Front Side"
           required
-          name={this.state.front}
-          onChange={this.handleChange}
+          front={this.state.front}
+          onChange={this.handleFrontChange}
         />
         <input
           placeholder="Back Side"
           required
           back={this.state.back}
-          onChange={this.handleChange}
+          onChange={this.handleBackChange}
         />
         <button type="submit"/>
       </form>
